@@ -3135,6 +3135,19 @@ chip</description>
 <wire x1="-0.508" y1="0" x2="0.508" y2="0" width="0.4064" layer="1"/>
 <wire x1="-0.508" y1="0" x2="0.508" y2="0" width="0.3048" layer="51"/>
 </package>
+<package name="TACTILE_SWITCH_SMD_2PIN_TINY">
+<wire x1="-2" y1="1.5" x2="2" y2="1.5" width="0.2032" layer="21"/>
+<wire x1="-2" y1="-1.5" x2="2" y2="-1.5" width="0.2032" layer="21"/>
+<wire x1="-2" y1="1.5" x2="-2" y2="1" width="0.2032" layer="21"/>
+<wire x1="2" y1="1.5" x2="2" y2="1" width="0.2032" layer="21"/>
+<wire x1="-2" y1="-1" x2="-2" y2="-1.5" width="0.2032" layer="21"/>
+<wire x1="2" y1="-1" x2="2" y2="-1.5" width="0.2032" layer="21"/>
+<circle x="0" y="0" radius="0.8" width="0.2032" layer="21"/>
+<smd name="1" x="-2.05" y="0" dx="1.4" dy="1.4" layer="1" rot="R90"/>
+<smd name="2" x="2.05" y="0" dx="1.4" dy="1.4" layer="1" rot="R90"/>
+<rectangle x1="-2.4" y1="-0.7" x2="-1.5" y2="0.7" layer="51"/>
+<rectangle x1="1.5" y1="-0.7" x2="2.4" y2="0.7" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="LED">
@@ -3253,6 +3266,24 @@ chip</description>
 <pin name="2" x="5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="1" x="-5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="1"/>
 <wire x1="-1.27" y1="0" x2="1.27" y2="0" width="0.4064" layer="94"/>
+</symbol>
+<symbol name="TS2">
+<wire x1="2.032" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="1.905" y1="6.35" x2="1.905" y2="5.08" width="0.254" layer="94"/>
+<wire x1="1.905" y1="6.35" x2="0" y2="6.35" width="0.254" layer="94"/>
+<wire x1="-1.905" y1="6.35" x2="-1.905" y2="5.08" width="0.254" layer="94"/>
+<wire x1="0" y1="6.35" x2="0" y2="4.445" width="0.1524" layer="94"/>
+<wire x1="0" y1="6.35" x2="-1.905" y2="6.35" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="1.905" width="0.1524" layer="94"/>
+<wire x1="0" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="94"/>
+<wire x1="0" y1="3.81" x2="0" y2="3.175" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="0" x2="2.032" y2="1.016" width="0.254" layer="94"/>
+<circle x="-2.54" y="0" radius="0.127" width="0.4064" layer="94"/>
+<circle x="2.54" y="0" radius="0.127" width="0.4064" layer="94"/>
+<text x="-4.445" y="9.525" size="1.778" layer="95">&gt;NAME</text>
+<text x="-4.318" y="7.239" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="S" x="5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="P" x="-5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="2"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -3552,6 +3583,23 @@ Basic schematic elements and footprints for 0603, 1206, and PTH 1/10th watt (sma
 </device>
 </devices>
 </deviceset>
+<deviceset name="TAC_SWITCH_2PIN" prefix="S">
+<description>&lt;b&gt;Momentary Tactile Switch - 2 pin&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="TS2" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TACTILE_SWITCH_SMD_2PIN_TINY">
+<connects>
+<connect gate="1" pin="P" pad="1"/>
+<connect gate="1" pin="S" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 <library name="freetronics-master-v1.1">
@@ -3714,64 +3762,6 @@ Standard 1-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </deviceset>
 </devicesets>
 </library>
-<library name="freetronics-master-v1">
-<packages>
-<package name="TACTILE_SWITCH_SMD_2PIN_TINY">
-<wire x1="-2" y1="1.5" x2="2" y2="1.5" width="0.2032" layer="21"/>
-<wire x1="-2" y1="-1.5" x2="2" y2="-1.5" width="0.2032" layer="21"/>
-<wire x1="-2" y1="1.5" x2="-2" y2="1" width="0.2032" layer="21"/>
-<wire x1="2" y1="1.5" x2="2" y2="1" width="0.2032" layer="21"/>
-<wire x1="-2" y1="-1" x2="-2" y2="-1.5" width="0.2032" layer="21"/>
-<wire x1="2" y1="-1" x2="2" y2="-1.5" width="0.2032" layer="21"/>
-<circle x="0" y="0" radius="0.8" width="0.2032" layer="21"/>
-<smd name="1" x="-2.05" y="0" dx="1.4" dy="1.4" layer="1" rot="R90"/>
-<smd name="2" x="2.05" y="0" dx="1.4" dy="1.4" layer="1" rot="R90"/>
-<rectangle x1="-2.4" y1="-0.7" x2="-1.5" y2="0.7" layer="51"/>
-<rectangle x1="1.5" y1="-0.7" x2="2.4" y2="0.7" layer="51"/>
-<hole x="0" y="0.9" drill="0.65"/>
-<hole x="0" y="-0.9" drill="0.65"/>
-</package>
-</packages>
-<symbols>
-<symbol name="TS2">
-<wire x1="2.032" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="1.905" y1="6.35" x2="1.905" y2="5.08" width="0.254" layer="94"/>
-<wire x1="1.905" y1="6.35" x2="0" y2="6.35" width="0.254" layer="94"/>
-<wire x1="-1.905" y1="6.35" x2="-1.905" y2="5.08" width="0.254" layer="94"/>
-<wire x1="0" y1="6.35" x2="0" y2="4.445" width="0.1524" layer="94"/>
-<wire x1="0" y1="6.35" x2="-1.905" y2="6.35" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="0" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="0" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="94"/>
-<wire x1="0" y1="3.81" x2="0" y2="3.175" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="0" x2="2.032" y2="1.016" width="0.254" layer="94"/>
-<circle x="-2.54" y="0" radius="0.127" width="0.4064" layer="94"/>
-<circle x="2.54" y="0" radius="0.127" width="0.4064" layer="94"/>
-<text x="-4.445" y="9.525" size="1.778" layer="95">&gt;NAME</text>
-<text x="-4.318" y="7.239" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="S" x="5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="P" x="-5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="2"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="TAC_SWITCH_2PIN" prefix="S">
-<description>&lt;b&gt;Momentary Tactile Switch - 2 pin&lt;/b&gt;</description>
-<gates>
-<gate name="1" symbol="TS2" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="TACTILE_SWITCH_SMD_2PIN_TINY">
-<connects>
-<connect gate="1" pin="P" pad="1"/>
-<connect gate="1" pin="S" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 </libraries>
 <attributes>
 </attributes>
@@ -3826,16 +3816,17 @@ Standard 1-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="SJ1" library="freetronics-jon" deviceset="SJC" device="N" value="ENABLE"/>
 <part name="R6" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="10K"/>
 <part name="P+2" library="freetronics-original" deviceset="3.3V" device=""/>
-<part name="SW1" library="freetronics-master-v1" deviceset="TAC_SWITCH_2PIN" device="" value="RESET"/>
-<part name="SW2" library="freetronics-master-v1" deviceset="TAC_SWITCH_2PIN" device="" value="REFLASH"/>
+<part name="SW1" library="freetronics-jon" deviceset="TAC_SWITCH_2PIN" device="" value="RESET"/>
+<part name="SW2" library="freetronics-jon" deviceset="TAC_SWITCH_2PIN" device="" value="REFLASH"/>
 <part name="D1" library="freetronics-original" deviceset="DIODE" device="SOD" value="1N4148WS"/>
 <part name="JP1" library="freetronics-original" deviceset="M02" device="PTH" value="RST-LNK"/>
+<part name="GND2" library="freetronics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="149.86" y="12.7" size="3.048" layer="94">Freetronics ESP-01 Shield</text>
-<text x="215.9" y="6.858" size="1.778" layer="94">V3.0 (2015-04-16)</text>
+<text x="215.9" y="6.858" size="1.778" layer="94">V3.1 (2015-05-19)</text>
 <text x="149.606" y="6.858" size="1.778" layer="94">tron.cc/esp1sh</text>
 <text x="187.96" y="6.858" size="1.778" layer="94">SKU: ESP1SH</text>
 <text x="10.922" y="30.48" size="2.54" layer="94" ratio="12" rot="R90">Arduino Headers</text>
@@ -3886,17 +3877,17 @@ www.tapr.org/OHL</text>
 <attribute name="NAME" x="60.96" y="132.08" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="60.96" y="119.38" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="Q1" gate="G$1" x="53.34" y="152.4" smashed="yes" rot="MR270">
-<attribute name="NAME" x="48.26" y="160.02" size="1.778" layer="95" rot="MR180"/>
-<attribute name="VALUE" x="48.26" y="147.32" size="1.778" layer="96" rot="MR180"/>
+<instance part="Q1" gate="G$1" x="53.34" y="144.78" smashed="yes" rot="MR270">
+<attribute name="NAME" x="48.26" y="152.4" size="1.778" layer="95" rot="MR180"/>
+<attribute name="VALUE" x="48.26" y="139.7" size="1.778" layer="96" rot="MR180"/>
 </instance>
 <instance part="P+1" gate="G$1" x="236.22" y="167.64"/>
-<instance part="J5" gate="G$1" x="20.32" y="160.02" rot="R270"/>
+<instance part="J5" gate="G$1" x="20.32" y="152.4" rot="R270"/>
 <instance part="J6" gate="G$1" x="203.2" y="33.02"/>
 <instance part="J7" gate="G$1" x="20.32" y="132.08" rot="R270"/>
 <instance part="R4" gate="G$1" x="73.66" y="129.54" rot="R90"/>
-<instance part="R2" gate="G$1" x="60.96" y="157.48" rot="R90"/>
-<instance part="R1" gate="G$1" x="40.64" y="157.48" rot="R90"/>
+<instance part="R2" gate="G$1" x="60.96" y="149.86" rot="R90"/>
+<instance part="R1" gate="G$1" x="40.64" y="149.86" rot="R90"/>
 <instance part="R3" gate="G$1" x="45.72" y="129.54" rot="R90"/>
 <instance part="J8" gate="G$1" x="96.52" y="20.32" smashed="yes">
 <attribute name="NAME" x="88.9" y="26.035" size="1.778" layer="95"/>
@@ -3905,14 +3896,14 @@ www.tapr.org/OHL</text>
 <instance part="GND4" gate="1" x="109.22" y="12.7"/>
 <instance part="GND5" gate="1" x="139.7" y="7.62"/>
 <instance part="U$7" gate="G$1" x="99.06" y="101.6"/>
-<instance part="SL5" gate="G$1" x="83.82" y="132.08"/>
+<instance part="SL5" gate="G$1" x="83.82" y="129.54"/>
 <instance part="SL9" gate="G$1" x="129.54" y="17.78" smashed="yes" rot="R270"/>
 <instance part="SL10" gate="G$1" x="109.22" y="93.98" smashed="yes" rot="R90"/>
 <instance part="J9" gate="G$1" x="116.84" y="139.7"/>
-<instance part="GND3" gate="1" x="139.7" y="119.38"/>
-<instance part="SL6" gate="G$1" x="83.82" y="144.78"/>
-<instance part="SL8" gate="G$1" x="152.4" y="132.08" rot="R180"/>
-<instance part="SL7" gate="G$1" x="152.4" y="144.78" rot="R180"/>
+<instance part="GND3" gate="1" x="137.16" y="114.3"/>
+<instance part="SL6" gate="G$1" x="83.82" y="139.7"/>
+<instance part="SL8" gate="G$1" x="152.4" y="144.78" rot="R180"/>
+<instance part="SL7" gate="G$1" x="152.4" y="157.48" rot="R180"/>
 <instance part="GND13" gate="1" x="167.64" y="119.38"/>
 <instance part="REG2" gate="G$1" x="205.74" y="149.86" smashed="yes">
 <attribute name="NAME" x="200.66" y="152.4" size="1.778" layer="95"/>
@@ -3931,13 +3922,14 @@ www.tapr.org/OHL</text>
 <attribute name="NAME" x="171.45" y="145.161" size="1.778" layer="95"/>
 <attribute name="VALUE" x="170.688" y="141.605" size="1.778" layer="96"/>
 </instance>
-<instance part="SJ1" gate="G$1" x="109.22" y="154.94" rot="R180"/>
-<instance part="R6" gate="G$1" x="119.38" y="162.56" rot="R90"/>
-<instance part="P+2" gate="G$1" x="10.16" y="170.18"/>
+<instance part="SJ1" gate="G$1" x="93.98" y="152.4" rot="R270"/>
+<instance part="R6" gate="G$1" x="93.98" y="165.1" rot="R90"/>
+<instance part="P+2" gate="G$1" x="10.16" y="172.72"/>
 <instance part="SW1" gate="1" x="35.56" y="93.98"/>
-<instance part="SW2" gate="1" x="132.08" y="154.94"/>
+<instance part="SW2" gate="1" x="149.86" y="124.46"/>
 <instance part="D1" gate="G$1" x="38.1" y="116.84" rot="R180"/>
 <instance part="JP1" gate="G$1" x="17.78" y="114.3"/>
+<instance part="GND2" gate="1" x="154.94" y="114.3"/>
 </instances>
 <busses>
 </busses>
@@ -4110,13 +4102,9 @@ www.tapr.org/OHL</text>
 </segment>
 <segment>
 <pinref part="J9" gate="G$1" pin="GND"/>
-<wire x1="132.08" y1="142.24" x2="139.7" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="142.24" x2="139.7" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="142.24" x2="137.16" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="142.24" x2="137.16" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="GND3" gate="1" pin="GND"/>
-<pinref part="SW2" gate="1" pin="S"/>
-<wire x1="137.16" y1="154.94" x2="139.7" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="154.94" x2="139.7" y2="142.24" width="0.1524" layer="91"/>
-<junction x="139.7" y="142.24"/>
 </segment>
 <segment>
 <wire x1="226.06" y1="124.46" x2="205.74" y2="124.46" width="0.1524" layer="91"/>
@@ -4140,6 +4128,11 @@ www.tapr.org/OHL</text>
 <wire x1="233.68" y1="144.78" x2="233.68" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="124.46" x2="226.06" y2="124.46" width="0.1524" layer="91"/>
 <junction x="226.06" y="124.46"/>
+</segment>
+<segment>
+<pinref part="SW2" gate="1" pin="S"/>
+<pinref part="GND2" gate="1" pin="GND"/>
+<wire x1="154.94" y1="124.46" x2="154.94" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VIN" class="0">
@@ -4342,13 +4335,13 @@ www.tapr.org/OHL</text>
 </segment>
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="45.72" y1="134.62" x2="45.72" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="162.56" x2="40.64" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="134.62" x2="45.72" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="154.94" x2="40.64" y2="154.94" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="45.72" y1="162.56" x2="45.72" y2="175.26" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="175.26" x2="60.96" y2="175.26" width="0.1524" layer="91"/>
-<label x="50.8" y="175.26" size="1.778" layer="95"/>
-<junction x="45.72" y="162.56"/>
+<wire x1="45.72" y1="154.94" x2="45.72" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="177.8" x2="63.5" y2="177.8" width="0.1524" layer="91"/>
+<label x="50.8" y="177.8" size="1.778" layer="95"/>
+<junction x="45.72" y="154.94"/>
 </segment>
 </net>
 <net name="NC" class="0">
@@ -4362,30 +4355,30 @@ www.tapr.org/OHL</text>
 <net name="3.3V" class="0">
 <segment>
 <pinref part="Q2" gate="G$1" pin="G"/>
-<wire x1="66.04" y1="132.08" x2="66.04" y2="170.18" width="0.1524" layer="91"/>
-<wire x1="66.04" y1="170.18" x2="73.66" y2="170.18" width="0.1524" layer="91"/>
-<wire x1="66.04" y1="170.18" x2="60.96" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="132.08" x2="66.04" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="172.72" x2="73.66" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="172.72" x2="60.96" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="Q1" gate="G$1" pin="G"/>
-<wire x1="60.96" y1="170.18" x2="53.34" y2="170.18" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="170.18" x2="53.34" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="172.72" x2="53.34" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="172.72" x2="53.34" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="60.96" y1="162.56" x2="60.96" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="154.94" x2="60.96" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="73.66" y1="134.62" x2="73.66" y2="170.18" width="0.1524" layer="91"/>
-<junction x="60.96" y="170.18"/>
-<junction x="66.04" y="170.18"/>
-<junction x="73.66" y="170.18"/>
+<wire x1="73.66" y1="134.62" x2="73.66" y2="172.72" width="0.1524" layer="91"/>
+<junction x="60.96" y="172.72"/>
+<junction x="66.04" y="172.72"/>
+<junction x="73.66" y="172.72"/>
 <pinref part="J9" gate="G$1" pin="3V3"/>
-<wire x1="99.06" y1="170.18" x2="73.66" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="172.72" x2="93.98" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="172.72" x2="73.66" y2="172.72" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="134.62" x2="99.06" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="134.62" x2="99.06" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="134.62" x2="99.06" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="119.38" y1="167.64" x2="119.38" y2="170.18" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="170.18" x2="99.06" y2="170.18" width="0.1524" layer="91"/>
-<junction x="99.06" y="170.18"/>
-<junction x="53.34" y="170.18"/>
-<wire x1="53.34" y1="170.18" x2="10.16" y2="170.18" width="0.1524" layer="91"/>
+<junction x="53.34" y="172.72"/>
+<wire x1="53.34" y1="172.72" x2="10.16" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="P+2" gate="G$1" pin="3.3V"/>
+<wire x1="93.98" y1="170.18" x2="93.98" y2="172.72" width="0.1524" layer="91"/>
+<junction x="93.98" y="172.72"/>
 </segment>
 <segment>
 <wire x1="226.06" y1="139.7" x2="226.06" y2="149.86" width="0.1524" layer="91"/>
@@ -4419,11 +4412,11 @@ www.tapr.org/OHL</text>
 <segment>
 <pinref part="Q1" gate="G$1" pin="S"/>
 <pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="58.42" y1="152.4" x2="60.96" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="152.4" x2="96.52" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="152.4" x2="96.52" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="144.78" x2="60.96" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="144.78" x2="96.52" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="144.78" x2="96.52" y2="142.24" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="142.24" x2="101.6" y2="142.24" width="0.1524" layer="91"/>
-<junction x="60.96" y="152.4"/>
+<junction x="60.96" y="144.78"/>
 <pinref part="J9" gate="G$1" pin="TX"/>
 </segment>
 </net>
@@ -4482,41 +4475,41 @@ www.tapr.org/OHL</text>
 <net name="TX" class="0">
 <segment>
 <pinref part="Q1" gate="G$1" pin="D"/>
-<wire x1="48.26" y1="152.4" x2="40.64" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="144.78" x2="40.64" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="1"/>
-<junction x="40.64" y="152.4"/>
-<wire x1="40.64" y1="152.4" x2="30.48" y2="152.4" width="0.1524" layer="91"/>
-<label x="33.02" y="152.4" size="1.778" layer="95"/>
+<junction x="40.64" y="144.78"/>
+<wire x1="40.64" y1="144.78" x2="30.48" y2="144.78" width="0.1524" layer="91"/>
+<label x="33.02" y="144.78" size="1.778" layer="95"/>
 <pinref part="J5" gate="G$1" pin="1"/>
-<wire x1="12.7" y1="154.94" x2="12.7" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="152.4" x2="15.24" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="147.32" x2="12.7" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="144.78" x2="15.24" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="J5" gate="G$1" pin="8"/>
-<wire x1="15.24" y1="152.4" x2="17.78" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="152.4" x2="20.32" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="152.4" x2="22.86" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="152.4" x2="25.4" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="152.4" x2="27.94" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="152.4" x2="30.48" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="154.94" x2="30.48" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="144.78" x2="17.78" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="144.78" x2="20.32" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="144.78" x2="22.86" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="144.78" x2="25.4" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="144.78" x2="27.94" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="144.78" x2="30.48" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="147.32" x2="30.48" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="J5" gate="G$1" pin="7"/>
-<wire x1="27.94" y1="154.94" x2="27.94" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="147.32" x2="27.94" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="J5" gate="G$1" pin="6"/>
-<wire x1="25.4" y1="154.94" x2="25.4" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="147.32" x2="25.4" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="J5" gate="G$1" pin="5"/>
-<wire x1="22.86" y1="154.94" x2="22.86" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="147.32" x2="22.86" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="J5" gate="G$1" pin="4"/>
-<wire x1="20.32" y1="154.94" x2="20.32" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="147.32" x2="20.32" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="J5" gate="G$1" pin="3"/>
-<wire x1="17.78" y1="154.94" x2="17.78" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="147.32" x2="17.78" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="J5" gate="G$1" pin="2"/>
-<wire x1="15.24" y1="154.94" x2="15.24" y2="152.4" width="0.1524" layer="91"/>
-<junction x="15.24" y="152.4"/>
-<junction x="17.78" y="152.4"/>
-<junction x="20.32" y="152.4"/>
-<junction x="22.86" y="152.4"/>
-<junction x="25.4" y="152.4"/>
-<junction x="27.94" y="152.4"/>
-<junction x="30.48" y="152.4"/>
+<wire x1="15.24" y1="147.32" x2="15.24" y2="144.78" width="0.1524" layer="91"/>
+<junction x="15.24" y="144.78"/>
+<junction x="17.78" y="144.78"/>
+<junction x="20.32" y="144.78"/>
+<junction x="22.86" y="144.78"/>
+<junction x="25.4" y="144.78"/>
+<junction x="27.94" y="144.78"/>
+<junction x="30.48" y="144.78"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -4529,45 +4522,47 @@ www.tapr.org/OHL</text>
 <net name="N$1" class="0">
 <segment>
 <pinref part="SL8" gate="G$1" pin="1"/>
-<wire x1="144.78" y1="132.08" x2="142.24" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="132.08" x2="142.24" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="J9" gate="G$1" pin="GPIO0"/>
+<wire x1="144.78" y1="144.78" x2="142.24" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="144.78" x2="142.24" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="137.16" x2="132.08" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="SW2" gate="1" pin="P"/>
+<wire x1="144.78" y1="124.46" x2="142.24" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="124.46" x2="142.24" y2="137.16" width="0.1524" layer="91"/>
+<junction x="142.24" y="137.16"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="SL7" gate="G$1" pin="1"/>
-<wire x1="144.78" y1="144.78" x2="142.24" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="144.78" x2="142.24" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="157.48" x2="139.7" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="157.48" x2="139.7" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="J9" gate="G$1" pin="GPIO2"/>
-<wire x1="142.24" y1="139.7" x2="132.08" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="139.7" x2="132.08" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
 <pinref part="SL5" gate="G$1" pin="1"/>
-<wire x1="91.44" y1="132.08" x2="93.98" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="132.08" x2="93.98" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="129.54" x2="93.98" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="129.54" x2="93.98" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="J9" gate="G$1" pin="RST"/>
 <wire x1="93.98" y1="137.16" x2="101.6" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="40.64" y1="116.84" x2="93.98" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="116.84" x2="93.98" y2="132.08" width="0.1524" layer="91"/>
-<junction x="93.98" y="132.08"/>
+<wire x1="93.98" y1="116.84" x2="93.98" y2="129.54" width="0.1524" layer="91"/>
+<junction x="93.98" y="129.54"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="SL6" gate="G$1" pin="1"/>
-<wire x1="91.44" y1="144.78" x2="93.98" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="144.78" x2="93.98" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="139.7" x2="93.98" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="J9" gate="G$1" pin="CH_PD"/>
 <wire x1="93.98" y1="139.7" x2="101.6" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="SJ1" gate="G$1" pin="2"/>
-<wire x1="104.14" y1="154.94" x2="93.98" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="154.94" x2="93.98" y2="144.78" width="0.1524" layer="91"/>
-<junction x="93.98" y="144.78"/>
+<wire x1="93.98" y1="147.32" x2="93.98" y2="139.7" width="0.1524" layer="91"/>
+<junction x="93.98" y="139.7"/>
 </segment>
 </net>
 <net name="N$58" class="0">
@@ -4582,11 +4577,7 @@ www.tapr.org/OHL</text>
 <segment>
 <pinref part="SJ1" gate="G$1" pin="1"/>
 <pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="114.3" y1="154.94" x2="119.38" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="154.94" x2="119.38" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="SW2" gate="1" pin="P"/>
-<wire x1="127" y1="154.94" x2="119.38" y2="154.94" width="0.1524" layer="91"/>
-<junction x="119.38" y="154.94"/>
+<wire x1="93.98" y1="157.48" x2="93.98" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$61" class="0">
@@ -4604,7 +4595,7 @@ www.tapr.org/OHL</text>
 <approved hash="206,1,213.36,147.32,3.3V,,,,,"/>
 <approved hash="206,1,203.2,167.64,3.3V,,,,,"/>
 <approved hash="206,1,203.2,165.1,3.3V,,,,,"/>
-<approved hash="208,1,10.16,170.18,3.3V,sup,,,,"/>
+<approved hash="208,1,10.16,172.72,3.3V,sup,,,,"/>
 <approved hash="208,1,213.36,149.86,3.3V,out,,,,"/>
 <approved hash="208,1,213.36,147.32,3.3V,out,,,,"/>
 <approved hash="208,1,203.2,167.64,3.3V,out,,,,"/>
