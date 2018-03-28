@@ -1,8 +1,6 @@
 Freetronics ESP8266 / ESP-01 (WiFi) Breakout Shield
 ===================================================
-Copyright 2014 Freetronics Pty Ltd  
-Freetronics site:  www.freetronics.com  
-Freetronics email: info@freetronics.com  
+Copyright 2014-2017 Freetronics Pty Ltd www.freetronics.com  
 
 A shield for the Arduino and other microcontroller boards based on the
 same header format, such as the Freetronics Eleven. Includes a header
@@ -24,7 +22,7 @@ The design is saved as an EAGLE project. EAGLE PCB design software is
 available from www.cadsoftusa.com free for non-commercial use. To use
 this project download it and place the directory containing these files
 into the "eagle" directory on your computer. Then open EAGLE and
-navigate to Projects -> eagle -> ESP1SH.
+navigate to the project.
 
 
 DISTRIBUTION
